@@ -11,6 +11,7 @@ services:
       TZ: ${TZ:-Asia/Tokyo}
     networks:
       - ddbj-search-network
+    restart: unless-stopped
     init: true
 
 networks:
