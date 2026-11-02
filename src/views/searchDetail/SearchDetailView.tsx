@@ -3,6 +3,7 @@ import { dbLabels, type DBType } from "@/consts/db.ts";
 import { getEntryTitle } from "@/lib/entry/getEntryTitle.ts";
 import { useTitle } from "@/lib/react/useTitle.ts";
 import type { SearchDetailResponse } from "@/schema/api/types.ts";
+import { RelatedGraphPanel } from "@/views/searchDetail/components/graph/RelatedGraphPanel.tsx";
 import {
   type AttributeKeyValue,
   AttributesPanel,
@@ -51,6 +52,7 @@ export const SearchDetailView: FC<Props> = ({ data }) => {
             dbType={data.type}
             identifier={data.identifier}
           />
+          <RelatedGraphPanel key={`${data.type}/${data.identifier}`} data={data} />
         </div>
 
         <div data-name={"rightCol"} className={"flex w-fit flex-shrink-0 flex-col gap-4"}>
